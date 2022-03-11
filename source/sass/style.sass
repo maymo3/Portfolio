@@ -1,0 +1,500 @@
+@import _variable.sass
+
+// = = = = = 全体 = = = = =
+html
+    font-size: 62.5%
+
+*, *::before, *::after
+    box-sizing: border-box
+
+body
+    font-family: $font-family-base
+    font-size: 1.4rem
+    color: $dark-color
+    line-height: 1
+    background-color: $light-color
+    font-weight: 300
+
+a:link, a:visited, a:hover, a:active
+    color: inherit
+    text-decoration: none
+
+img
+    vertical-align: middle  // 隙間防止
+    image-rendering: -webkit-optimize-contrast  // Chromeぼやけ防止
+
+
+// = = = = = content = = = = =
+
+.content
+    max-width: 980px    // 940px + padding 20px * 2
+    padding: 0 2rem     // 仮
+    margin-right: auto
+    margin-left: auto
+    +responsive-size(margin-bottom,15rem,9.2rem)
+
+    @media #{$mq-md}
+        max-width: 660px
+    
+    // @media #{$mq-sm}
+    //     max-width: 460px
+
+    @media #{$mq-xs}
+        padding: 0 3.7rem
+    @media (max-width: 340px)
+        padding: 0 1.5rem
+
+/* * * * * section title * * * * */
+.section-title
+    +font-size(3.6rem, 2.4rem)
+    text-align: center
+    font-weight: 500    // Medium
+    line-height: 1
+    +responsive-size(margin-top,15rem,9.2rem)
+
+.sub-title
+    +font-size(2rem, 1.6rem)
+    text-align: center
+    font-weight: 500    // Medium
+    margin-top: 4.6rem
+
+/* * * * * top * * * * */
+.top
+    // padding: 20rem 0
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+    +responsive-size(margin-bottom,-15rem,-9.2rem)
+  
+.top__inner
+    text-align: center
+    
+.top__title
+    +font-size(6.8rem,4.4rem)
+    font-weight: 500    // Medium
+
+.top__sub
+    +font-size(2.4rem,1.4rem)
+    font-weight: 300    // Light
+    +responsive-size(margin-top,2rem,.8rem)
+
+.top__icon
+    margin-top: 15rem
+    +font-size(2.4rem,1.4rem)
+    font-weight: 300    // Light
+    
+.scroll-animation
+    padding-top: 80px
+    position: relative
+
+    span
+        position: absolute
+        top: 0
+        left: 50%
+        width: 24px
+        height: 24px
+        margin-left: -12px
+        border-left: 1px solid $dark-color
+        border-bottom: 1px solid $dark-color
+        -webkit-transform: rotate(-45deg)
+        transform: rotate(-45deg)
+        -webkit-animation: sdb 2s infinite
+        animation: sdb 2s infinite
+        opacity: 0
+        box-sizing: border-box
+
+        &:nth-of-type(1)
+            -webkit-animation-delay: 0s
+            animation-delay: 0s
+
+        &:nth-of-type(2)
+            top: 16px
+            -webkit-animation-delay: .15s
+            animation-delay: .15s
+
+        &:nth-of-type(3)
+            top: 32px
+            -webkit-animation-delay: .3s
+            animation-delay: .3s
+
+@-webkit-keyframes sdb
+    0%
+        opacity: 0
+
+    50%
+        opacity: 1
+
+    100%
+        opacity: 0
+
+@keyframes sdb
+    0%
+        opacity: 0
+
+    50%
+        opacity: 1
+
+    100%
+        opacity: 0
+
+/* * * * * main * * * * */
+
+.main__img
+    width: 100%
+    margin-top: 4.6rem
+
+/* * * * * animation * * * * */
+
+=anmt-pseudo
+    animation: 2s cubic-bezier(0.4, 0, 0.2, 1) forwards
+    background: #fff
+    content: ''
+    pointer-events: none
+    position: absolute
+    left: 0
+    right: 0
+    z-index: 1
+
+.anmt
+    overflow: hidden
+    position: relative
+
+.anmt-LtR.anmt-on
+    &:before
+        +anmt-pseudo
+        bottom: 0
+        top: 0
+        animation-name: anmt-LtR
+
+.anmt-both.anmt-on
+    &:before, &:after
+        +anmt-pseudo
+
+    &:before
+        animation-name: anmt-LtR
+        top: 0
+        bottom: 50%
+
+    &:after
+        animation-name: anmt-RtL
+        top: 50%
+        bottom: 0
+
+@keyframes anmt-LtR
+    100%
+        transform: translateX(100%)
+
+@keyframes anmt-RtL
+    100%
+        transform: translateX(-100%)
+
+// .anmt-zoom.anmt-on img
+//     animation: anmt-zoom 1.2s cubic-bezier(.4, 0, .2, 1)
+
+// @keyframes anmt-zoom
+//     0%
+//         transform: scale(1.2)
+//     28%
+//         transform: scale(1.2)
+
+// = = = = = 
+
+.main__details
+    display: flex
+    max-width: 780px
+    margin-right: auto
+    margin-left: auto
+    +responsive-size(margin-top,9.2rem,4.6rem)
+
+    @media #{$mq-sm}
+        flex-direction: column-reverse
+        align-items: center
+        max-width: 46rem
+
+.detail__item
+    width: 38rem
+
+    @media #{$mq-md}
+        width: 30rem
+    @media #{$mq-sm}
+        width: 100%
+
+.main__body
+    margin-left: 2rem
+
+    @media #{$mq-sm}
+        margin-left: 0
+
+.main__title
+    +font-size(2rem,1.6rem)
+    font-weight: 500    // Medium
+
+.main__before-icon
+    &:not(:first-child)
+        margin-top: 1.2rem
+
+.main__skills
+    display: flex
+    margin-top: 4.6rem
+
+    @media #{$mq-md}
+        margin-top: 3rem
+
+.main__text
+    margin-top: 4.6rem
+    line-height: 1.7
+
+    @media #{$mq-md}
+        margin-top: 3rem
+
+.main__app
+    margin-left: 2rem
+
+.main__links
+    border-radius: .5rem
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16)
+
+    @media #{$mq-sm}
+        margin-top: 4.6rem
+
+.links__img
+    width: 100%
+    border-radius: .5rem .5rem 0 0
+
+.links__body
+    padding: 2.6rem
+
+    @media #{$mq-md}
+        padding: 2.6rem 1.8rem
+
+.links__item
+    display: flex
+    align-items: center
+    overflow-wrap: break-word
+    transition: .3s
+
+    &:hover
+        opacity: .6
+
+    &:last-child
+        margin-top: 2.6rem
+
+.links__icon
+    width: 3rem
+    margin-right: 1.4rem
+    
+.links__QR
+    height: 6rem
+    margin-right: 1.4rem
+
+.links__link
+    min-width: 0
+    line-height: 1.7
+    
+    
+/* * * * * cards * * * * */
+.card__body
+    @media #{$mq-sm}
+        width: 100%
+.cards
+    display: flex
+    // flex-wrap: wrap
+    @media #{$mq-sm}
+        max-width: 46rem
+        margin-right: auto
+        margin-left: auto
+
+/* * * 各カードに対する指定 * * */
+.card
+    @media #{$mq-sm}
+        width: 100%
+//     display: flex
+//     flex-direction: column
+//     align-items: center
+
+/* .cards--col2 */
+
+.cards--col2
+    +responsive-size(margin-top,15rem,9.2rem)
+
+    @media #{$mq-md}
+        flex-direction: column
+        align-items: center
+    
+.cards--col2 > .cards__item
+    max-width: 460px
+
+    &:not(:first-child)
+        margin-left: 2rem
+
+        @media #{$mq-md}
+            margin-left: 0
+            +responsive-size(margin-top,4.6rem,3rem)
+
+    @media #{$mq-md}
+        display: flex
+        align-items: flex-end
+        width: 100%
+        max-width: none
+
+    @media #{$mq-sm}
+        flex-direction: column
+        align-items: center
+
+.cards--col2 .card__img
+    @media #{$mq-md}
+        max-width: 380px
+        margin-right: 2rem
+
+    @media #{$mq-sm}
+        max-width: none
+        width: 100%
+        margin-right: 0
+
+.cards--col2 .card__body
+    flex-grow: 1
+
+    @media #{$mq-sm}
+        width: 100%
+
+/* .cards--col3 */ 
+
+.cards--col3
+    +responsive-size(margin-top,4.6rem,3rem)
+
+    @media #{$mq-sm}
+        flex-direction: column
+        align-items: center
+
+.cards--col3 > .cards__item
+    max-width: 300px
+
+    &:not(:first-child)
+        margin-left: 2rem
+
+        @media #{$mq-sm}
+            margin-left: 0
+            +responsive-size(margin-top,4.6rem,3rem)
+
+    @media #{$mq-sm}
+        max-width: none
+    
+.cards--col3 .card__img
+    @media #{$mq-sm}
+        max-width: 300px
+        width: 100%
+        display: block
+        margin: 0 auto
+
+/* 共通 */ 
+
+.card__title
+    margin-top: 1.2rem
+    font-size: 1.6rem
+    font-weight: 500
+
+.card__img
+    max-width: 100%
+
+.card__text
+    line-height: 1.7
+    margin-top: 1.2rem
+
+.card__before-icon
+    margin-top: 1.2rem
+
+
+
+.before-icon
+    font-size: 1.6rem
+
+.before-icon::before
+    font-family: "outlined-iconset"
+    content: "\e091"
+    margin-right: .3rem
+    font-size: 1.5rem
+    line-height: 1.6rem
+
+/* * * * *  About * * * * */
+.about__media
+    +responsive-size(margin-top,4.6rem,3rem)
+    max-width: 620px
+    margin-right: auto
+    margin-left: auto
+    display: flex
+
+    @media #{$mq-sm}
+        flex-direction: column
+        align-items: center
+        max-width: 46rem
+
+.about__img
+    height: 14rem
+    border-radius: 50%
+
+.about__body
+    margin-left: 2rem
+
+    @media #{$mq-sm}
+        margin-left: 0
+        margin-top: 3rem
+
+.about__text
+    line-height: 1.7
+
+/* * * * * Skills * * * * */
+.skills__cards
+    +responsive-size(margin-top,4.6rem,3rem)
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: -3rem
+
+    @media #{$mq-sm}
+        flex-direction: column
+        align-items: center
+
+.learning-skills
+    justify-content: center
+
+.learning-skills > .skills__item
+    &:not(:first-child)
+        margin-left: 2rem
+
+        @media #{$mq-sm}
+            margin-left: 0
+
+.skills__item
+    display: flex
+    width: 300px
+    margin-bottom: 3rem
+
+    @media (max-width: 340px)
+        width: 100%
+
+.learned-skills > .skills__item
+    &:not(:nth-child(3n))
+        margin-right: 2rem
+
+    @media #{$mq-md}
+        &:not(:nth-child(3n))
+            margin-right: 0
+        &:nth-child(2n)
+            margin-left: 2rem
+    @media #{$mq-sm}
+        &:nth-child(2n)
+            margin-left: 0
+
+.skills__img
+    width: 6rem
+
+.skills__body
+    margin-left: 2rem
+
+.skills__title
+    font-size: 1.6rem
+    font-weight: 500
+
+.skills__text
+    line-height: 1.7
+    margin-top: 1.2rem

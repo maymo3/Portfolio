@@ -1,0 +1,35 @@
+@font-face
+    /*フォントの名前*/
+    font-family: "outlined-iconset"
+    /*フォントファイルへのパス（複数指定の場合、上から順に読み込まれる）*/
+    src: url("../font/outlined-iconset.woff") format("woff")
+    
+// = = = = = メディアクエリ = = = = =
+
+$mq-xs: "(max-width: 480px)"
+$mq-sm: "(max-width: 660px)"
+$mq-md: "(max-width: 992px)"
+$mq-lg: "(max-width: 1140px)"
+    
+
+// = = = = = 変数 = = = = =
+
+$light-color: #ffffff
+$dark-color: #707070
+$primary-color: #aaa
+$secondary-color: #ccc
+
+// Font
+$font-family-base: 'Quicksand', 'Noto Sans JP', sans-serif
+
+
+=font-size($pc-size,$sp-size)
+    font-size: $pc-size
+    @media #{$mq-xs}
+        font-size: $sp-size
+
+
+=responsive-size($name,$pc-size,$sp-size)
+    #{$name}: $pc-size
+    @media #{$mq-xs}
+        #{$name}: $sp-size
