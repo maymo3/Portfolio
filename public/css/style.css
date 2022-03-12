@@ -1,10 +1,9 @@
 @charset "UTF-8";
 @font-face {
-  /*フォントの名前*/
   font-family: "outlined-iconset";
-  /*フォントファイルへのパス（複数指定の場合、上から順に読み込まれる）*/
   src: url("../font/outlined-iconset.woff") format("woff");
 }
+/* * * * * 全体 * * * * */
 html {
   font-size: 62.5%;
 }
@@ -32,6 +31,7 @@ img {
   image-rendering: -webkit-optimize-contrast;
 }
 
+/* * * * * content * * * * */
 .content {
   max-width: 980px;
   padding: 0 2rem;
@@ -146,120 +146,12 @@ img {
   }
 }
 
-.scroll-animation {
-  padding-top: 80px;
-  position: relative;
-}
-.scroll-animation span {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 24px;
-  height: 24px;
-  margin-left: -12px;
-  border-left: 1px solid #707070;
-  border-bottom: 1px solid #707070;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  -webkit-animation: sdb 2s infinite;
-  animation: sdb 2s infinite;
-  opacity: 0;
-  box-sizing: border-box;
-}
-.scroll-animation span:nth-of-type(1) {
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-}
-.scroll-animation span:nth-of-type(2) {
-  top: 16px;
-  -webkit-animation-delay: 0.15s;
-  animation-delay: 0.15s;
-}
-.scroll-animation span:nth-of-type(3) {
-  top: 32px;
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s;
-}
-
-@-webkit-keyframes sdb {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes sdb {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 /* * * * * main * * * * */
 .main__img {
   width: 100%;
   margin-top: 4.6rem;
 }
 
-/* * * * * animation * * * * */
-.anmt {
-  overflow: hidden;
-  position: relative;
-}
-
-.anmt-LtR.anmt-on:before {
-  animation: 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  background: #fff;
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  bottom: 0;
-  top: 0;
-  animation-name: anmt-LtR;
-}
-
-.anmt-both.anmt-on:before, .anmt-both.anmt-on:after {
-  animation: 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  background: #fff;
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-.anmt-both.anmt-on:before {
-  animation-name: anmt-LtR;
-  top: 0;
-  bottom: 50%;
-}
-.anmt-both.anmt-on:after {
-  animation-name: anmt-RtL;
-  top: 50%;
-  bottom: 0;
-}
-
-@keyframes anmt-LtR {
-  100% {
-    transform: translateX(100%);
-  }
-}
-@keyframes anmt-RtL {
-  100% {
-    transform: translateX(-100%);
-  }
-}
 .main__details {
   display: flex;
   max-width: 780px;
@@ -685,4 +577,162 @@ img {
 .skills__text {
   line-height: 1.7;
   margin-top: 1.2rem;
+}
+
+/* * * * * footer * * * * */
+.footer {
+  margin-top: 15rem;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .footer {
+    margin-top: 9.2rem;
+  }
+}
+
+.footer__inner {
+  display: inline-block;
+}
+@media (max-width: 660px) {
+  .footer__inner {
+    max-width: 300px;
+  }
+}
+@media (max-width: 340px) {
+  .footer__inner {
+    width: 100%;
+  }
+}
+
+.footer__title {
+  font-weight: 300;
+}
+
+.footer__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-wrap: break-word;
+  transition: 0.3s;
+  text-align: left;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 2.6rem;
+}
+@media (max-width: 992px) {
+  .footer__link {
+    padding: 2.6rem 1.8rem;
+  }
+}
+.footer__link:hover {
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* * * * * animation * * * * */
+.scroll-animation {
+  padding-top: 80px;
+  position: relative;
+}
+.scroll-animation span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #707070;
+  border-bottom: 1px solid #707070;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb 2s infinite;
+  animation: sdb 2s infinite;
+  opacity: 0;
+  box-sizing: border-box;
+}
+.scroll-animation span:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.scroll-animation span:nth-of-type(2) {
+  top: 16px;
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+.scroll-animation span:nth-of-type(3) {
+  top: 32px;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+@-webkit-keyframes sdb {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.anmt {
+  overflow: hidden;
+  position: relative;
+}
+
+.anmt-LtR.anmt-on:before {
+  animation: 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  background: #fff;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  bottom: 0;
+  top: 0;
+  animation-name: anmt-LtR;
+}
+
+.anmt-both.anmt-on:before, .anmt-both.anmt-on:after {
+  animation: 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  background: #fff;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.anmt-both.anmt-on:before {
+  animation-name: anmt-LtR;
+  top: 0;
+  bottom: 50%;
+}
+.anmt-both.anmt-on:after {
+  animation-name: anmt-RtL;
+  top: 50%;
+  bottom: 0;
+}
+
+@keyframes anmt-LtR {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes anmt-RtL {
+  100% {
+    transform: translateX(-100%);
+  }
 }

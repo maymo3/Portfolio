@@ -1,6 +1,7 @@
 @import _variable.sass
 
-// = = = = = 全体 = = = = =
+/* * * * * 全体 * * * * */
+    
 html
     font-size: 62.5%
 
@@ -24,20 +25,17 @@ img
     image-rendering: -webkit-optimize-contrast  // Chromeぼやけ防止
 
 
-// = = = = = content = = = = =
+/* * * * * content * * * * */
 
 .content
     max-width: 980px    // 940px + padding 20px * 2
-    padding: 0 2rem     // 仮
+    padding: 0 2rem
     margin-right: auto
     margin-left: auto
     +responsive-size(margin-bottom,15rem,9.2rem)
 
     @media #{$mq-md}
         max-width: 660px
-    
-    // @media #{$mq-sm}
-    //     max-width: 460px
 
     @media #{$mq-xs}
         padding: 0 3.7rem
@@ -45,6 +43,7 @@ img
         padding: 0 1.5rem
 
 /* * * * * section title * * * * */
+
 .section-title
     +font-size(3.6rem, 2.4rem)
     text-align: center
@@ -59,8 +58,8 @@ img
     margin-top: 4.6rem
 
 /* * * * * top * * * * */
+
 .top
-    // padding: 20rem 0
     display: flex
     justify-content: center
     align-items: center
@@ -83,122 +82,13 @@ img
     margin-top: 15rem
     +font-size(2.4rem,1.4rem)
     font-weight: 300    // Light
-    
-.scroll-animation
-    padding-top: 80px
-    position: relative
 
-    span
-        position: absolute
-        top: 0
-        left: 50%
-        width: 24px
-        height: 24px
-        margin-left: -12px
-        border-left: 1px solid $dark-color
-        border-bottom: 1px solid $dark-color
-        -webkit-transform: rotate(-45deg)
-        transform: rotate(-45deg)
-        -webkit-animation: sdb 2s infinite
-        animation: sdb 2s infinite
-        opacity: 0
-        box-sizing: border-box
-
-        &:nth-of-type(1)
-            -webkit-animation-delay: 0s
-            animation-delay: 0s
-
-        &:nth-of-type(2)
-            top: 16px
-            -webkit-animation-delay: .15s
-            animation-delay: .15s
-
-        &:nth-of-type(3)
-            top: 32px
-            -webkit-animation-delay: .3s
-            animation-delay: .3s
-
-@-webkit-keyframes sdb
-    0%
-        opacity: 0
-
-    50%
-        opacity: 1
-
-    100%
-        opacity: 0
-
-@keyframes sdb
-    0%
-        opacity: 0
-
-    50%
-        opacity: 1
-
-    100%
-        opacity: 0
 
 /* * * * * main * * * * */
 
 .main__img
     width: 100%
     margin-top: 4.6rem
-
-/* * * * * animation * * * * */
-
-=anmt-pseudo
-    animation: 2s cubic-bezier(0.4, 0, 0.2, 1) forwards
-    background: #fff
-    content: ''
-    pointer-events: none
-    position: absolute
-    left: 0
-    right: 0
-    z-index: 1
-
-.anmt
-    overflow: hidden
-    position: relative
-
-.anmt-LtR.anmt-on
-    &:before
-        +anmt-pseudo
-        bottom: 0
-        top: 0
-        animation-name: anmt-LtR
-
-.anmt-both.anmt-on
-    &:before, &:after
-        +anmt-pseudo
-
-    &:before
-        animation-name: anmt-LtR
-        top: 0
-        bottom: 50%
-
-    &:after
-        animation-name: anmt-RtL
-        top: 50%
-        bottom: 0
-
-@keyframes anmt-LtR
-    100%
-        transform: translateX(100%)
-
-@keyframes anmt-RtL
-    100%
-        transform: translateX(-100%)
-
-// .anmt-zoom.anmt-on img
-//     animation: anmt-zoom 1.2s cubic-bezier(.4, 0, .2, 1)
-
-// @keyframes anmt-zoom
-//     0%
-//         transform: scale(1.2)
-//     28%
-//         transform: scale(1.2)
-
-// = = = = = 
 
 .main__details
     display: flex
@@ -294,6 +184,7 @@ img
     
     
 /* * * * * cards * * * * */
+
 .card__body
     @media #{$mq-sm}
         width: 100%
@@ -309,9 +200,6 @@ img
 .card
     @media #{$mq-sm}
         width: 100%
-//     display: flex
-//     flex-direction: column
-//     align-items: center
 
 /* .cards--col2 */
 
@@ -404,8 +292,6 @@ img
 .card__before-icon
     margin-top: 1.2rem
 
-
-
 .before-icon
     font-size: 1.6rem
 
@@ -417,6 +303,7 @@ img
     line-height: 1.6rem
 
 /* * * * *  About * * * * */
+
 .about__media
     +responsive-size(margin-top,4.6rem,3rem)
     max-width: 620px
@@ -444,6 +331,7 @@ img
     line-height: 1.7
 
 /* * * * * Skills * * * * */
+
 .skills__cards
     +responsive-size(margin-top,4.6rem,3rem)
     display: flex
@@ -498,3 +386,154 @@ img
 .skills__text
     line-height: 1.7
     margin-top: 1.2rem
+
+/* * * * * footer * * * * */
+
+.footer
+    +responsive-size(margin-top,15rem,9.2rem)
+    text-align: center
+
+.footer__inner
+    display: inline-block
+    
+    @media #{$mq-sm}
+        max-width: 300px
+
+    @media (max-width: 340px)
+        width: 100%
+
+.footer__title
+    font-weight: 300    // Light
+
+.footer__link
+    display: flex
+    align-items: center
+    justify-content: center
+    overflow-wrap: break-word
+    transition: .3s
+    text-align: left
+    border-radius: .5rem
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16)
+    padding: 2.6rem
+
+    @media #{$mq-md}
+        padding: 2.6rem 1.8rem
+
+    &:hover
+        box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.2)
+        // opacity: .6
+
+/* * * * * animation * * * * */
+
+// = = = = = スクロールアニメーション ここから
+.scroll-animation
+    padding-top: 80px
+    position: relative
+
+    span
+        position: absolute
+        top: 0
+        left: 50%
+        width: 24px
+        height: 24px
+        margin-left: -12px
+        border-left: 1px solid $dark-color
+        border-bottom: 1px solid $dark-color
+        -webkit-transform: rotate(-45deg)
+        transform: rotate(-45deg)
+        -webkit-animation: sdb 2s infinite
+        animation: sdb 2s infinite
+        opacity: 0
+        box-sizing: border-box
+
+        &:nth-of-type(1)
+            -webkit-animation-delay: 0s
+            animation-delay: 0s
+
+        &:nth-of-type(2)
+            top: 16px
+            -webkit-animation-delay: .15s
+            animation-delay: .15s
+
+        &:nth-of-type(3)
+            top: 32px
+            -webkit-animation-delay: .3s
+            animation-delay: .3s
+
+@-webkit-keyframes sdb
+    0%
+        opacity: 0
+
+    50%
+        opacity: 1
+
+    100%
+        opacity: 0
+
+@keyframes sdb
+    0%
+        opacity: 0
+
+    50%
+        opacity: 1
+
+    100%
+        opacity: 0
+
+// = = = = = スクロールアニメーション ここまで
+
+// = = = = = 画像アニメーション ここから
+
+=anmt-pseudo
+    animation: 2s cubic-bezier(0.4, 0, 0.2, 1) forwards
+    background: #fff
+    content: ''
+    pointer-events: none
+    position: absolute
+    left: 0
+    right: 0
+    z-index: 1
+
+.anmt
+    overflow: hidden
+    position: relative
+
+.anmt-LtR.anmt-on
+    &:before
+        +anmt-pseudo
+        bottom: 0
+        top: 0
+        animation-name: anmt-LtR
+
+.anmt-both.anmt-on
+    &:before, &:after
+        +anmt-pseudo
+
+    &:before
+        animation-name: anmt-LtR
+        top: 0
+        bottom: 50%
+
+    &:after
+        animation-name: anmt-RtL
+        top: 50%
+        bottom: 0
+
+@keyframes anmt-LtR
+    100%
+        transform: translateX(100%)
+
+@keyframes anmt-RtL
+    100%
+        transform: translateX(-100%)
+
+// .anmt-zoom.anmt-on img
+//     animation: anmt-zoom 1.2s cubic-bezier(.4, 0, .2, 1)
+
+// @keyframes anmt-zoom
+//     0%
+//         transform: scale(1.2)
+//     28%
+//         transform: scale(1.2)
+
+// = = = = = 画像アニメーション ここまで
